@@ -1,0 +1,36 @@
+<div class="wrapper">
+    <div style="width:60px">
+        <div style="text-align: center;padding:5px">
+                <img src="assets/iconBack.png" width="90" (click)="onGoBack()">
+        </div>            
+    </div>
+    <div style="width:1010px; text-align:left;">
+        <iframe src="http://localhost:8880/" height="500" width="1000"></iframe>
+    </div>
+    <div style="width:780px; height:490px">
+        <div>
+            <div style="min-width:500px">
+                <input type="text" style="font-size: larger;" (keydown.enter)="onSearch(searchText.value)" placeholder="Search" #searchText>
+                <button class="custom-btn btn-5" (click)="onSearch(searchText.value)">Search</button>
+            </div>
+            <div style="min-width:300px; max-width: 680px; background-color: aquamarine;">
+                <label style="color:blue; font-size: larger;"> {{resultsLabel}}</label>
+            </div>
+        </div>
+        <div class="grid_button_container" style="max-height:100px;overflow-y:scroll;overflow-x: hidden;">
+            <div *ngFor="let f of folderFilters">
+                <button class="custom-btn btn-5" (click)="onSetFolderFilter(f.dbid,f.id)">{{f.name.substring(0,11)}}</button>
+            </div>
+        </div>
+        <div class="grid" style="background-color: white; height: 260px;overflow-y:scroll;overflow-x: hidden;">
+            <div *ngFor="let row of searchResults">
+                <input type="checkbox" class="largecb" (change)="checkChange(row.fid, row.id)">
+                <label style="font-family: Arial, Helvetica, sans-serif; font-size: larger;">{{row.name.replace('.mp3','')}}</label></div>
+        </div>
+        <div *ngIf="searchResults.length>0" style="width:500px">
+            <button class="custom-btn btn-5" (click)="onAddAll()">Add All</button>
+            <button class="custom-btn btn-5" style="width:200px" (click)="onAddChecked()">Add Checked</button>
+        </div>
+    </div>
+</div>
+

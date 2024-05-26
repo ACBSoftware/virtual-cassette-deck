@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <div style="text-align: center;">
+        <div style="padding:10px">
+            <img src="assets/iconBack.png" width="100" (click)="onGoBack()">
+        </div>
+        <button class="custom-btn btn-5" (click)="onGoBack()">Back</button>
+    </div>
+    <div *ngFor="let u of externalUrls">
+        <div style="text-align: center;">
+            <div style="min-height: 125px;">
+                <img src="{{u.iconUrl}}" width="{{u.iconWidth}}" (click)="goToLinkInNewWindow(u.url)">
+            </div>
+            <div>
+                <button (click)="goToLinkInNewWindow(u.url)" class="custom-btn btn-5">{{u.buttonTitle}}</button>
+            </div>
+        </div>
+    </div>
+</div>

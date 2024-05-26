@@ -1,0 +1,20 @@
+<div style="width:1880px; height:495px; background-color: rgb(118, 121, 119);padding:10px">
+        <div style="width:600px; height:310px; background-color: black; float:left;display:inline">
+            <app-vu-display #vumeter />
+            <div style="width:660px; position: relative; left:50px; top:30px">
+                <a href="/"><button class="custom-btn btn-5">Main Page</button></a>
+                <button class="custom-btn btn-5" (click)="onToggleMeter()">MeterTest</button>
+                <input type="text" [(ngModel)]="name" (input)="change($event)">
+                <div>
+                    <label>This page is for testing with local files.</label>
+                    <label>Make sure test1.mp3, test2.mp3 exist under /assets.</label>
+                </div>
+            </div>
+        </div>
+        <div style="float:right; position: absolute; left:553px;top:-20px">
+            <div style="margin-left:60px"><app-tape-display #tapeDisplay></app-tape-display></div>
+            <div style="width:400px; height:60px; background-color: rgb(199,201,200);position: relative; left:130px;">
+                <app-control-buttons #controls (playButtonEvent)="handlePlay($event)" (pauseButtonEvent)="handlePause($event)" (ffButtonEvent)="handleFF($event)" (rewButtonEvent)="handleRew($event)"></app-control-buttons>
+            </div>
+        </div>
+</div>

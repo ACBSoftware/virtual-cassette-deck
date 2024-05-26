@@ -1,0 +1,28 @@
+<div [style.background-color]="backgroundColor" [style.background-image]="backgroundImage" style="width:1900px; height:495px;padding:10px">
+    <div class="wrapper">
+        <div style="align-self:stretch;margin-top:20px">
+            <div style="width:600px; height:320px; background-color: black;">
+                <app-vu-display #vumeter />
+                <div style="width:560px; position: relative; left:50px; top:30px">
+                    <button class="custom-btn btn-5" (click)="onShowFoobarPanel()">Playlist</button>
+                    <button class="custom-btn btn-5" (click)="onToggleMeter()">Display</button>
+                    <a routerLink="/inet"><button class="custom-btn btn-5">Internet</button></a>
+                    <button class="custom-btn btn-5" (click)="onBluetooth()">Bluetooth</button>
+                </div>
+            </div>
+            <div>
+                <button class="custom-btn btn-5" (click)="onStartButton()" *ngIf="this.showInitialButton==true" >Start</button>
+                <button (click)="onBGDivClick()" style="width:200px;height:50px;background-color: transparent;border: none;" *ngIf="this.showInitialButton==false"></button>
+            </div>
+        </div>
+        <div style="align-self:stretch;">
+            <app-tape-display #tapeDisplay></app-tape-display>
+            <div style="width:450px; height:60px; background-color: rgb(199,201,200);position: relative; left:55px;">
+                <app-control-buttons #controls (playButtonEvent)="handlePlay($event)" (pauseButtonEvent)="handlePause($event)" (ffButtonEvent)="handleFF($event)" (rewButtonEvent)="handleRew($event)" (stopButtonEvent)="handleStop($event)"></app-control-buttons>
+            </div>
+        </div>
+        <div style="align-self:stretch;margin-top:10px;" id="ifrdiv">
+            <iframe src="http://localhost:8880/" height="410" width="740" id="ifr"></iframe>
+        </div>
+    </div>
+</div>

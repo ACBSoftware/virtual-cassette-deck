@@ -1,0 +1,12 @@
+@echo Starting Python Back End
+Cd\Dev\my-app-backend
+start python -m uvicorn --reload main:app
+@echo Starting Foobar
+start "" "C:\Program Files (x86)\foobar2000\foobar2000.exe"
+@echo Starting User interface
+cd\Dev\my-app
+REM start ng serve
+start npm run start
+waitfor /T 10 pause 2>nul
+start "" "C:\Program Files\Google\Chrome\Application\chrome.exe" http://localhost:4200
+exit

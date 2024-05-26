@@ -1,0 +1,10 @@
+<div style="position: relative; top:0px">
+    <div *ngIf="this.currentTape===0" style="background-color:whitesmoke;width:410px; position: relative;left:67px;top:64px">
+        <div class="permanent-marker-regular">&nbsp;{{labelText}}</div>
+    </div>
+    <div *ngIf="this.currentTape===1" class="permanent-marker-regular" style="background-color:whitesmoke;width:323px; position: relative;left:133px;top:79px;overflow:hidden;">
+        &nbsp;{{labelText}}
+    </div>
+    <video (click)="toggleTape()" preload="auto" loop muted style="width:550px" #vidTape [src]="this.currentTape == 0 ? '/assets/taperunsmall.mp4' : '/assets/taperun2small.mp4'" type="video/mp4">
+    </video>
+</div>

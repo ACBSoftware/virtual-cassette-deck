@@ -1,0 +1,7 @@
+<div style="border:2px black">
+    <img [src]="this.isStopped ? 'assets/buttonstop1.png' : 'assets/buttonstop.png'" (click)="pressStop()" style="width:90px">
+    <img [src]="this.isRewHeld ? 'assets/buttonrew1.png' : 'assets/buttonrew.png'" (click)="pressRew()" (pointerdown)="touchRew()" (pointerup)="touchRewEnd()" style="width:90px">
+    <img [src]="this.isPlaying ? 'assets/buttonplay1.png' : 'assets/buttonplay.png'" (click)="pressPlay()" style="width:90px">
+    <img [src]="this.isFFHeld ? 'assets/buttonff1.png' : 'assets/buttonff.png'" (click)="pressFF()" (pointerdown)="touchFF()" (pointerup)="touchFFEnd()" style="width:90px">
+    <img [src]="(this.isPaused && !this.isStopped) ? 'assets/buttonpause1.png' : 'assets/buttonpause.png'" (click)="pressPause()" style="width:90px">
+</div>
